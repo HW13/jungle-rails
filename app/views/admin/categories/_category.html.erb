@@ -1,0 +1,12 @@
+<tr>
+  <td>
+    <%= link_to category.name, category %>
+  </td>
+  <td>
+    <%= category.products.size %>
+  </td>
+  <td>
+    <%= category.created_at.strftime('%F') %>
+  </td>
+  
+</tr>
