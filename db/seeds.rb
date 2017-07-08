@@ -25,6 +25,8 @@ end
 
 puts "Finding or Creating Categories ..."
 
+Category.destroy_all
+
 cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
@@ -131,6 +133,22 @@ cat3.products.create!({
   quantity: 23,
   price: 2_483.75
 })
+User.destroy_all
 
+ User.create!({
+   first_name: 'bob',
+   last_name: 'bobson',
+    email: 'bob@bob.bob',
+    password_digest: '1234'
+    })
+
+ Review.destroy_all
+
+ Review.create!({
+    product_id: 1,
+    user_id: 1,
+    description: 'Cool!',
+    rating: 3
+    })
 
 puts "DONE!"

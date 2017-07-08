@@ -9,6 +9,9 @@
     <div class="row">
 
       <div class="col-sm-4">
+       <% if @product.quantity === 0 %>
+        <span class="badge sold-out">SOLD OUT!</span>
+      <% end %>
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
 
@@ -21,10 +24,52 @@
           <dt>Quantity</dt>
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
-          <dd><%= @product.price %></dd>
+          <dd>$<%= @product.price %></dd>
+          <br>
+          <dd>
+          <h4>Review This Product</h4>
+          </dd>
+            <%= form_for([@product, @new_review]) do |f| %>
+              
+                <dt><%=label_tag :rating, 'Rating' %> </dt>
+                <dd>
+                <%= f.select :rating, 1..5, id: :product_reviews %>
+              </dd>
+               <dt> <%=label_tag :description, 'Description' %></dt>
+              <dd>
+                <%= f.text_area :description, id: :product_reviews %>
+              </dd>
+            <dd><%= f.submit %></dd>
+          
         </dl>
       </div>
+
+<% end %>
     </div>
+     <table class="table table-bordered">
+     <caption><h4> Reviews </h4></caption>
+      <thead>
+        <td>
+        <h5>Name</h5>
+        </td>  
+        <td>
+        <h5>Rating</h5>
+        </td>  
+        <td>
+        <h5>Description</h5>
+        </td>    
+        </tr>
+      </thead>
+      <tbody>
+    <%if @product.reviews.length === 0 %>
+      <td> <em> There are no reviews for this Item </em> </td>
+      <td/>
+      <td/>
+    <%end%>
+          <% @product.reviews.each do |review| %>
+          <%= render 'review', review: review %>
+        <% end %>
+      </tbody>
 
   </article>
 
