@@ -12,22 +12,12 @@
 
       <table class="table table-bordered">
         <thead>
-          <tr>
-            <td>
-            </td>
-            <td>
-              Name
-            </td>
-            <td>
-              Description
-            </td>
-            <td>
-              Quantity
-            </td>
-            <td>
-              Price
-            </td>
-          </tr>
+            <tr>
+              <th colspan="2">Product</th>
+              <th>Quantity</th>
+              <th>Unit Price</th>
+              <th>Price</th>
+            </tr>
         </thead>
         <tbody>
           <% @order.line_items.each do |item| %>
@@ -35,7 +25,7 @@
               <% end %>
         </tbody>
         <td/>
-        <td/>
+        
         <td>
           <h4> Order Total: $
             <%= @order.total %>
