@@ -13,16 +13,16 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to [:admin, :products], notice: 'Product created!'
+      redirect_to [:admin, :products], notice: 'Product Added!'
     else
-      render :new
+      render :new, notice: 'Error: Unable to add product'
     end
   end
 
   def destroy
     @product = Product.find params[:id]
     @product.destroy
-    redirect_to [:admin, :products], notice: 'Product deleted!'
+    redirect_to [:admin, :products], notice: 'Product Deleted.'
   end
 
   private

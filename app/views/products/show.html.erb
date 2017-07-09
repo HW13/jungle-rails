@@ -27,19 +27,21 @@
           <dd>$<%= @product.price %></dd>
           <br>
           <dd>
+            <%= link_to add_item_cart_path(product_id: @product.id), class: 'btn btn-primary', method: :put do %>
+            <%= fa_icon "shopping-cart", text: 'Add' %>
+            <% end %>
+          </dd>
+          <br>
+          <dd>
           <h4>Review This Product</h4>
           </dd>
-            <%= form_for([@product, @new_review]) do |f| %>
-              
-                <dt><%=label_tag :rating, 'Rating' %> </dt>
-                <dd>
-                <%= f.select :rating, 1..5, id: :product_reviews %>
-              </dd>
-               <dt> <%=label_tag :description, 'Description' %></dt>
-              <dd>
-                <%= f.text_area :description, id: :product_reviews %>
-              </dd>
-            <dd><%= f.submit %></dd>
+          <%= form_for([@product, @new_review]) do |f| %>
+        
+            <dt> <%=label_tag :rating, 'Rating' %> </dt>
+            <dd> <%= f.select :rating, 1..5, id: :product_reviews %> </dd>
+            <dt> <%=label_tag :description, 'Description' %> </dt>
+            <dd> <%= f.text_area :description, id: :product_reviews %> </dd>
+            <dd> <%= f.submit class: 'btn btn-primary' %> </dd>
           
         </dl>
       </div>

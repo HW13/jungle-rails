@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+before_filter :authorize
   def create
     @product = Product.find(params[:product_id])
   
@@ -9,10 +9,10 @@ class ReviewsController < ApplicationController
   
     
       if @review.save
-        redirect_to(@product, {notice: 'Review successfully created'})
+        redirect_to @product, notice: 'Review Successfully Created!'
       else
 
-        redirect_to(@product, {notice: 'Failed to create review'})
+        redirect_to @product, notice: 'Failed to Create Review.'
       end
   end
 
