@@ -2,7 +2,6 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
-
 ## Setup
 
 1. Fork & Clone
@@ -26,3 +25,15 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+# Screeshots
+
+![View Products](https://github.com/HW13/jungle-rails/blob/master/docs/jungle_screenshot_products.png?raw=true)
+
+![Signup](https://github.com/HW13/jungle-rails/blob/master/docs/jungle_screenshot_signup.png?raw=true)
+
+![Read and Write Reviews](https://github.com/HW13/jungle-rails/blob/master/docs/jungle_screenshot_review.png?raw=true)
+
+![Add Items to Cart](https://github.com/HW13/jungle-rails/blob/master/docs/jungle_screenshot_cart.png?raw=true)
+
+![Complete your Order](https://github.com/HW13/jungle-rails/blob/master/docs/jungle_screenshot_order.png?raw=true)
