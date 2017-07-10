@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
       empty_cart!
       
       UserMailer.order_email(order).deliver_now
+
       
       redirect_to order, notice: 'Your Order has been Placed!'
     else
@@ -24,6 +25,13 @@ class OrdersController < ApplicationController
 
   private
 
+  def update_inventory(order)
+    order.line_items.each do |item|
+      product = Product.find(item.product.id)
+      product.decrement!('quantity', item.quantity)
+    end
+  end
+    
   def empty_cart!
     # empty hash means no products in cart :)
     update_cart({})
@@ -55,6 +63,7 @@ class OrdersController < ApplicationController
         )
       end
     end
+    update_inventory(order)
     order.save!
     order
   end
@@ -69,5 +78,8 @@ class OrdersController < ApplicationController
     end
     total
   end
+
+      
+
 
 end

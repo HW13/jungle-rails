@@ -41,7 +41,7 @@ cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
-  quantity: 0,
+  quantity: 1,
   price: 64.99
 })
 
@@ -73,7 +73,7 @@ cat1.products.create!({
   name:  'Russian Spy Shoes',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel5.jpg'),
-  quantity: 8,
+  quantity: 0,
   price: 1_225.00
 })
 
@@ -84,7 +84,6 @@ cat1.products.create!({
   quantity: 82,
   price: 224.50
 })
-
 
 cat2.products.create!({
   name:  'Modern Skateboards',
@@ -133,22 +132,75 @@ cat3.products.create!({
   quantity: 23,
   price: 2_483.75
 })
+
 User.destroy_all
 
  User.create!({
-   first_name: 'bob',
-   last_name: 'bobson',
-    email: 'bob@bob.bob',
-    password_digest: '1234'
-    })
+   first_name: 'Hal',
+   last_name: 'Jordan',
+    email: 'gl1@jl.com',
+    password: '123'
+  })
+  
+ User.create!({
+   first_name: 'Diana',
+   last_name: 'Prince',
+    email: 'ww@jl.com',
+    password: '123'
+  })
+
+  User.create!({
+   first_name: 'Barry',
+   last_name: 'Allen',
+    email: 'f1@jl.com',
+    password: '123'
+  })
+ 
+  
 
  Review.destroy_all
 
  Review.create!({
     product_id: 1,
     user_id: 1,
-    description: 'Cool!',
-    rating: 3
-    })
+    description: 'Classy and cool!',
+    rating: 4
+  })
+  
+  Review.create!({
+    product_id: 2,
+    user_id: 2,
+    description: 'Great for an amazon on the go!',
+    rating: 5
+  })
+
+  Review.create!({
+    product_id: 6,
+    user_id: 3,
+    description: 'Why did I buy these...',
+    rating: 1
+  })
+  
+  Review.create!({
+    product_id: 12,
+    user_id: 1,
+    description: 'Wish it was green.',
+    rating: 2
+  })
+
+  Review.create!({
+    product_id: 9,
+    user_id: 2,
+    description: 'Questionable durability. It broke the first day I wore it to work.',
+    rating: 1
+  })
+
+  Review.create!({
+    product_id: 8,
+    user_id: 3,
+    description: 'Now I can eat even faster!',
+    rating: 5
+  })
+  
 
 puts "DONE!"
