@@ -1,16 +1,20 @@
 <header class="page-header">
   <h1>Login to Jungle!</h1> 
 </header>
+<br>
+<div class="col-md-3">
+</div>
+<div class="col-md-3">
+  <%= form_tag '/login' do %>
 
-<%= form_tag '/login' do %>
+    <dl class="dl-horizontal">
+      <dt> Email: </dt> 
+      <dd> <%= text_field_tag :email %> </dd>
+      <br>
+      <dt> Password: </dt>
+      <dd> <%= password_field_tag :password %> </dd> 
+      <br>
+      <dd> <%= submit_tag "Submit", class: 'btn btn-primary' %> </dd>
 
-  <dl class="dl-horizontal">
-    <dt> Email: </dt> 
-    <dd> <%= text_field_tag :email %> </dd>
-    <br>
-    <dt> Password: </dt>
-    <dd> <%= password_field_tag :password %> </dd> 
-    <br>
-    <dd> <%= submit_tag "Submit", class: 'btn btn-primary' %> </dd>
-
-<% end %>
+  <% end %>
+</div>
